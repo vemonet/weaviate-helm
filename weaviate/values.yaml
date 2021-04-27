@@ -187,18 +187,16 @@ collector_proxy:
     port: 80
     type: LoadBalancer
 
-# Use anyuid ServiceAccount for OpenShift
-# serviceAccount:
-#   name: "anyuid"
+# Use the anyuid ServiceAccount name for OpenShift
+serviceAccount:
+  name:
 
 # Automatically create a Route for OpenShift
 openshiftRoute:
   enabled: false
   host: ""
-  path: "/v1/docs"
+  path: ""
   wildcardPolicy: None
-  nameOverride: ""
-  fullnameOverride: ""
   tls:
     enabled: true
     termination: edge
