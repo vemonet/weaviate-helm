@@ -17,3 +17,18 @@ This chart installs weaviate along with it's dependancies (default: etcd) on a [
 
 - Kubernets 1.8+
 - PV provisioner support in the underlying infrastructure
+
+## Install from source
+
+On OpenShift with `anyuid` **ServiceAccount**, and a **Route** automatically created for the GraphQL API:
+
+```bash
+helm install weaviate . --set serviceAccount.name=anyuid,openshiftRoute.enabled=true
+```
+
+Uninstall:
+
+```bash
+helm uninstall weaviate
+```
+

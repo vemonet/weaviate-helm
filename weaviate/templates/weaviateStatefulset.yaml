@@ -17,6 +17,9 @@ spec:
         app: weaviate
     spec:
       terminationGracePeriodSeconds: 60
+      {{ if .Values.serviceAccount.name }}
+      serviceAccountName: {{ .Values.serviceAccount.name }}
+      {{ end }}
       containers:
       - name: weaviate
         image: '{{ .Values.image.registry }}/{{ .Values.image.repo }}:{{ .Values.image.tag }}'

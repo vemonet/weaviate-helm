@@ -186,3 +186,29 @@ collector_proxy:
     name: 'usage-proxy'
     port: 80
     type: LoadBalancer
+
+# Use anyuid ServiceAccount for OpenShift
+# serviceAccount:
+#   name: "anyuid"
+
+# Automatically create a Route for OpenShift
+openshiftRoute:
+  enabled: false
+  host: ""
+  path: "/v1/docs"
+  wildcardPolicy: None
+  nameOverride: ""
+  fullnameOverride: ""
+  tls:
+    enabled: true
+    termination: edge
+    insecureEdgeTerminationPolicy: Redirect
+    key:
+    certificate:
+    caCertificate:
+    destinationCACertificate:
+  service:
+    name: "weaviate"
+    targetPort: 8080
+    weight: 100
+  alternateBackends: []
